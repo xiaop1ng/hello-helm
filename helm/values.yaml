@@ -1,0 +1,16 @@
+deployment:
+  name: hello-helm # 部署名
+  image: hello-helm # 镜像版本
+  imageTag: latest #镜像tag
+  imagePullPolicy: IfNotPresent # 镜像拉取策略
+  replicas: 2 # 副本数量
+service:
+  name: hello-helm # Service服务名
+  ##
+  # 服务类型（网络类型），可选值如下
+  # LoadBalancer 负载均衡，集群外可访问
+  # ClusterIP 仅限集群内部访问
+  ##
+  type: ClusterIP # Service网络类型
+  port: 80 # Service服务端口
+  targetPort: 8080 # POD端口
